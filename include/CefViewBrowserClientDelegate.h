@@ -185,6 +185,14 @@ public:
   virtual bool onKeyEvent(CefRefPtr<CefBrowser> browser, const CefKeyEvent& event, CefEventHandle os_event) = 0;
 #pragma endregion
 
+  // find handler
+  virtual void findResult(CefRefPtr<CefBrowser> browser,
+                          int identifier,
+                          int count,
+                          const CefRect& selectionRect,
+                          int activeMatchOrdinal,
+                          bool finalUpdate) = 0;
+
   // Off screen rendering
 #pragma region RenderHandler
   virtual bool getRootScreenRect(CefRefPtr<CefBrowser> browser, CefRect& rect)
