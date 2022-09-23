@@ -132,6 +132,14 @@ public:
 
   virtual bool onKeyEvent(CefRefPtr<CefBrowser> browser, const CefKeyEvent& event, CefEventHandle os_event) = 0;
 
+  // find handler
+  virtual void findResult(CefRefPtr<CefBrowser> browser,
+                          int identifier,
+                          int count,
+                          const CefRect& selectionRect,
+                          int activeMatchOrdinal,
+                          bool finalUpdate) = 0;
+
   // focus handler
   virtual void takeFocus(CefRefPtr<CefBrowser>& browser, bool next) = 0;
 

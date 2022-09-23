@@ -33,6 +33,7 @@ class CefViewBrowserClient
   , public CefContextMenuHandler
   , public CefDisplayHandler
   , public CefDragHandler
+  , public CefFindHandler
   , public CefFocusHandler
   , public CefJSDialogHandler
   , public CefKeyboardHandler
@@ -213,6 +214,15 @@ protected:
   virtual void OnDraggableRegionsChanged(CefRefPtr<CefBrowser> browser,
                                          CefRefPtr<CefFrame> frame,
                                          const std::vector<CefDraggableRegion>& regions) override;
+
+  // CefFindHandler methods
+  virtual CefRefPtr<CefFindHandler> GetFindHandler() override;
+  virtual void OnFindResult(CefRefPtr<CefBrowser> browser,
+                            int identifier,
+                            int count,
+                            const CefRect& selectionRect,
+                            int activeMatchOrdinal,
+                            bool finalUpdate) override;
 
   // CefFocusHandler methods
   virtual CefRefPtr<CefFocusHandler> GetFocusHandler() override;
