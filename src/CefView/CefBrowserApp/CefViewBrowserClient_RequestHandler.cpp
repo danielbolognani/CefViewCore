@@ -59,6 +59,23 @@ CefViewBrowserClient::OnQuotaRequest(CefRefPtr<CefBrowser> browser,
   return true;
 }
 
+bool
+CefViewBrowserClient::OnSelectClientCertificate(CefRefPtr<CefBrowser> browser,
+                                                bool isProxy,
+                                                const CefString& host,
+                                                int port,
+                                                const X509CertificateList& certificates,
+                                                CefRefPtr<CefSelectClientCertificateCallback> callback)
+{
+  CEF_REQUIRE_UI_THREAD();
+
+  auto delegate = client_delegate_.lock();
+  if (delegate)
+    return delegate->selectClientCertificate(browser, isProxy, host, port, certificates, callback);
+
+  return false;
+}
+
 void
 CefViewBrowserClient::OnRenderProcessTerminated(CefRefPtr<CefBrowser> browser, TerminationStatus status)
 {

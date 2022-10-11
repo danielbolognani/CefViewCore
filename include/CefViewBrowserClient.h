@@ -341,6 +341,13 @@ protected:
                               int64 new_size,
                               CefRefPtr<CefCallback> callback) override;
 
+  virtual bool OnSelectClientCertificate(CefRefPtr<CefBrowser> browser,
+                                         bool isProxy,
+                                         const CefString& host,
+                                         int port,
+                                         const X509CertificateList& certificates,
+                                         CefRefPtr<CefSelectClientCertificateCallback> callback) override;
+
   virtual void OnRenderProcessTerminated(CefRefPtr<CefBrowser> browser, TerminationStatus status) override;
 
   // CefResourceRequestHandler
