@@ -388,6 +388,13 @@ protected:
                               CefRefPtr<CefCallback> callback) override;
 #endif
 
+  virtual bool OnSelectClientCertificate(CefRefPtr<CefBrowser> browser,
+                                         bool isProxy,
+                                         const CefString& host,
+                                         int port,
+                                         const X509CertificateList& certificates,
+                                         CefRefPtr<CefSelectClientCertificateCallback> callback) override;
+
   virtual void OnRenderProcessTerminated(CefRefPtr<CefBrowser> browser, TerminationStatus status) override;
 #pragma endregion
 

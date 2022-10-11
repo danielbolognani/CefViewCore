@@ -175,6 +175,13 @@ public:
                          bool& handled) = 0;
 #pragma endregion
 
+  // request handler
+  virtual bool selectClientCertificate(CefRefPtr<CefBrowser> browser,
+                                       bool isProxy,
+                                       const CefString& host,
+                                       int port,
+                                       const CefRequestHandler::X509CertificateList& certificates,
+                                       CefRefPtr<CefSelectClientCertificateCallback> callback) = 0;
   // keyboard handler
 #pragma region KeyboardHandler
   virtual bool onPreKeyEvent(CefRefPtr<CefBrowser> browser,
