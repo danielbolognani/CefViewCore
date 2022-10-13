@@ -112,10 +112,10 @@ if (OS_MACOS)
 
   set_target_properties(CefViewCore
     PROPERTIES
-      FRAMEWORK TRUE
+      #FRAMEWORK TRUE
       PUBLIC_HEADER                                               "${CefViewCore_PUBLIC_HEADERS}"
-      CLANG_ENABLE_OBJC_ARC                                       "YES"
-      APPEND_STRING PROPERTY COMPILE_FLAGS                        "-fobjc-arc"
+      #CLANG_ENABLE_OBJC_ARC                                       "YES"
+      #APPEND_STRING PROPERTY COMPILE_FLAGS                        "-fobjc-arc"
       XCODE_ATTRIBUTE_CLANG_CXX_LANGUAGE_STANDARD                 "gnu++11"   # -std=gnu++11
       XCODE_ATTRIBUTE_CLANG_LINK_OBJC_RUNTIME                     "NO"        # -fno-objc-link-runtime
       XCODE_ATTRIBUTE_COPY_PHASE_STRIP                            "NO"
