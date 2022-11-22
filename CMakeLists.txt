@@ -56,7 +56,8 @@ endif()
 set(CMAKE_CONFIGURATION_TYPES Debug Release)
 
 if(NOT CMAKE_BUILD_TYPE)
-  set(CMAKE_BUILD_TYPE "Debug")
+  message("FORCING CefViewCore to Release")
+  set(CMAKE_BUILD_TYPE "Release")
 endif()
 
 # Use folders in the resulting project files.
@@ -139,12 +140,12 @@ set(CefViewCore_INCLUDE_PATH
 
 if(OS_MACOS)
   # CEF Helper app suffixes, format: "<name suffix>:<target suffix>:<plist suffix>"
-  set(CEF_HELPER_APP_SUFFIXES
-    "::"
-    " (GPU):_gpu:.gpu"
-    " (Plugin):_plugin:.plugin"
-    " (Renderer):_renderer:.renderer"
-  )
+#  set(CEF_HELPER_APP_SUFFIXES
+#    "::"
+#    " (GPU):_gpu:.gpu"
+#    " (Plugin):_plugin:.plugin"
+#    " (Renderer):_renderer:.renderer"
+#  )
 endif()
 
 add_subdirectory(src)
