@@ -98,6 +98,17 @@ if(NOT EXISTS ${CEF_SDK_DIR})
 
   # Capture the dir name
   file(GLOB CEF_SDK_DIR "${CEF_SDK_EXTRACTED_DIR}")
+
+  if("${CMAKE_SYSTEM_NAME}" STREQUAL "Linux")
+    execute_process (
+      COMMAND bash -c "strip -S ${CEF_SDK_DIR}/Release/*"
+      OUTPUT_VARIABLE STRIP_RETURN
+    )
+    
+    if(STRIP_RETURN AND NOT STRIP_RETURN EQUAL 0)
+      message(FATAL_ERROR "Failed to strip ${CEF_SDK_DIR}/Release/*")
+    endif()
+  endif()
 endif()
 
 # output
