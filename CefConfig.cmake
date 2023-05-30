@@ -3,6 +3,8 @@
 #
 set(CEF_SDK_VERSION
 
+  # Current version
+  "111.2.7+gebf5d6a+chromium-111.0.5563.148"
   # "89.0.12+g2b76680+chromium-89.0.4389.90" # GOOD
   # "91.1.23+g04c8d56+chromium-91.0.4472.164" # GOOD
   # "95.7.12+g99c4ac0+chromium-95.0.4638.54" # GOOD
@@ -17,7 +19,7 @@ set(CEF_SDK_VERSION
   # "110.0.26+g732747f+chromium-110.0.5481.97"  # BAD   # TO-BE-FIXED
 
   #
-  "113.3.1+g525fa10+chromium-113.0.5672.128"
+  #"113.3.1+g525fa10+chromium-113.0.5672.128"
 )
 
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

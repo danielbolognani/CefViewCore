@@ -385,7 +385,7 @@ protected:
   virtual bool OnQuotaRequest(CefRefPtr<CefBrowser> browser,
                               const CefString& origin_url,
                               int64 new_size,
-                              CefRefPtr<CefCallback> callback) override;
+                              CefRefPtr<CefCallback> callback);
 #endif
 
   virtual bool OnSelectClientCertificate(CefRefPtr<CefBrowser> browser,
