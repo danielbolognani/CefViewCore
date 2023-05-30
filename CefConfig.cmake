@@ -6,7 +6,7 @@ set(CEF_SDK_VERSION
   # "89.0.12+g2b76680+chromium-89.0.4389.90"
 
   # Current version
-  "107.1.11+g26c0b5e+chromium-107.0.5304.110"
+  "111.2.7+gebf5d6a+chromium-111.0.5563.148"
   
   # Newer version (need to adpat)
   # --
