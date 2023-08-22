@@ -54,8 +54,7 @@ endif()
 
 # Only generate Debug and Release configuration types.
 set(CMAKE_CONFIGURATION_TYPES Debug Release)
-
-if(NOT CMAKE_BUILD_TYPE)
+if (NOT CMAKE_BUILD_TYPE)
   message("FORCING CefViewCore to Release")
   set(CMAKE_BUILD_TYPE "Release")
 endif()

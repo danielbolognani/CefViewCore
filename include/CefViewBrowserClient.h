@@ -386,7 +386,6 @@ protected:
                               const CefString& origin_url,
                               int64 new_size,
                               CefRefPtr<CefCallback> callback);
-#endif
 
   virtual bool OnSelectClientCertificate(CefRefPtr<CefBrowser> browser,
                                          bool isProxy,

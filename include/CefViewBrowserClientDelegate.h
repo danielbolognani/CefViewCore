@@ -200,6 +200,9 @@ public:
                           int activeMatchOrdinal,
                           bool finalUpdate) = 0;
 
+  // focus handler
+  virtual void takeFocus(CefRefPtr<CefBrowser>& browser, bool next) = 0;
+
   // Off screen rendering
 #pragma region RenderHandler
   virtual bool getRootScreenRect(CefRefPtr<CefBrowser> browser, CefRect& rect)
