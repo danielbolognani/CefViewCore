@@ -7,6 +7,7 @@ set(CEF_SDK_VERSION
 
   # Current version
   "111.2.7+gebf5d6a+chromium-111.0.5563.148"
+  #"109.1.18+gf1c41e4+chromium-109.0.5414.120" ## 32-bit version
   
   # Newer version (need to adpat)
   # --
