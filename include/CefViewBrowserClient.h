@@ -36,6 +36,7 @@ class CefViewBrowserClient
   , public CefDisplayHandler
   , public CefDownloadHandler
   , public CefDragHandler
+  , public CefFindHandler
   , public CefFocusHandler
   , public CefJSDialogHandler
   , public CefKeyboardHandler
@@ -248,6 +249,15 @@ protected:
                                          const std::vector<CefDraggableRegion>& regions) override;
 #pragma endregion
 
+  // CefFindHandler methods
+  virtual CefRefPtr<CefFindHandler> GetFindHandler() override;
+  virtual void OnFindResult(CefRefPtr<CefBrowser> browser,
+                            int identifier,
+                            int count,
+                            const CefRect& selectionRect,
+                            int activeMatchOrdinal,
+                            bool finalUpdate) override;
+
   // CefFocusHandler methods
 #pragma region CefFocusHandler
   virtual CefRefPtr<CefFocusHandler> GetFocusHandler() override;
@@ -376,8 +386,14 @@ protected:
   virtual bool OnQuotaRequest(CefRefPtr<CefBrowser> browser,
                               const CefString& origin_url,
                               int64 new_size,
-                              CefRefPtr<CefCallback> callback) override;
-#endif
+                              CefRefPtr<CefCallback> callback);
+
+  virtual bool OnSelectClientCertificate(CefRefPtr<CefBrowser> browser,
+                                         bool isProxy,
+                                         const CefString& host,
+                                         int port,
+                                         const X509CertificateList& certificates,
+                                         CefRefPtr<CefSelectClientCertificateCallback> callback) override;
 
   virtual void OnRenderProcessTerminated(CefRefPtr<CefBrowser> browser, TerminationStatus status) override;
 #pragma endregion

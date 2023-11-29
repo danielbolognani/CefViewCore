@@ -94,7 +94,7 @@ public:
 
   virtual void loadingProgressChanged(CefRefPtr<CefBrowser>& browser, double progress) = 0;
 
-  virtual void consoleMessage(CefRefPtr<CefBrowser>& browser, const std::string& message, int level) = 0;
+  virtual void consoleMessage(CefRefPtr<CefBrowser>& browser, const std::string& message, int level, const std::string& source, int line) = 0;
 
   virtual bool cursorChanged(CefRefPtr<CefBrowser> browser,
                              CefCursorHandle cursor,
@@ -174,6 +174,13 @@ public:
                          bool& handled) = 0;
 #pragma endregion
 
+  // request handler
+  virtual bool selectClientCertificate(CefRefPtr<CefBrowser> browser,
+                                       bool isProxy,
+                                       const CefString& host,
+                                       int port,
+                                       const CefRequestHandler::X509CertificateList& certificates,
+                                       CefRefPtr<CefSelectClientCertificateCallback> callback) = 0;
   // keyboard handler
 #pragma region KeyboardHandler
   virtual bool onPreKeyEvent(CefRefPtr<CefBrowser> browser,
@@ -183,6 +190,17 @@ public:
 
   virtual bool onKeyEvent(CefRefPtr<CefBrowser> browser, const CefKeyEvent& event, CefEventHandle os_event) = 0;
 #pragma endregion
+
+  // find handler
+  virtual void findResult(CefRefPtr<CefBrowser> browser,
+                          int identifier,
+                          int count,
+                          const CefRect& selectionRect,
+                          int activeMatchOrdinal,
+                          bool finalUpdate) = 0;
+
+  // focus handler
+  virtual void takeFocus(CefRefPtr<CefBrowser>& browser, bool next) = 0;
 
   // Off screen rendering
 #pragma region RenderHandler
