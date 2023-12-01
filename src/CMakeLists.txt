@@ -111,16 +111,16 @@ if(OS_MACOS)
 
   set_target_properties(CefViewCore
     PROPERTIES
-    FRAMEWORK TRUE
-    PUBLIC_HEADER "${CefViewCore_PUBLIC_HEADERS}"
-    CLANG_ENABLE_OBJC_ARC "YES"
-    APPEND_STRING PROPERTY COMPILE_FLAGS "-fobjc-arc"
-    XCODE_ATTRIBUTE_CLANG_CXX_LANGUAGE_STANDARD "gnu++11" # -std=gnu++11
-    XCODE_ATTRIBUTE_CLANG_LINK_OBJC_RUNTIME "NO" # -fno-objc-link-runtime
-    XCODE_ATTRIBUTE_COPY_PHASE_STRIP "NO"
-    XCODE_ATTRIBUTE_DEAD_CODE_STRIPPING[variant=Release] "YES" # -Wl,-dead_strip
-    XCODE_ATTRIBUTE_GCC_C_LANGUAGE_STANDARD "c99" # -std=c99
-    XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER "com.cefview.cefview"
+      #FRAMEWORK TRUE
+      PUBLIC_HEADER                                               "${CefViewCore_PUBLIC_HEADERS}"
+      #CLANG_ENABLE_OBJC_ARC                                       "YES"
+      #APPEND_STRING PROPERTY COMPILE_FLAGS                        "-fobjc-arc"
+      XCODE_ATTRIBUTE_CLANG_CXX_LANGUAGE_STANDARD                 "gnu++11"   # -std=gnu++11
+      XCODE_ATTRIBUTE_CLANG_LINK_OBJC_RUNTIME                     "NO"        # -fno-objc-link-runtime
+      XCODE_ATTRIBUTE_COPY_PHASE_STRIP                            "NO"
+      XCODE_ATTRIBUTE_DEAD_CODE_STRIPPING[variant=Release]        "YES"       # -Wl,-dead_strip
+      XCODE_ATTRIBUTE_GCC_C_LANGUAGE_STANDARD                     "c99"       # -std=c99
+      XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER                   "com.cefview.cefview"
   )
 
   add_dependencies(CefViewCore
