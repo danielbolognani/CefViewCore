@@ -103,9 +103,6 @@ public:
                                        const CefRequestHandler::X509CertificateList& certificates,
                                        CefRefPtr<CefSelectClientCertificateCallback> callback) = 0;
 
-  // display handler
-  virtual void draggableRegionChanged(CefRefPtr<CefBrowser>& browser,
-                                      const std::vector<CefDraggableRegion>& regions) = 0;
 
   virtual void addressChanged(CefRefPtr<CefBrowser>& browser, int64_t frameId, const std::string& url) = 0;
 
@@ -165,7 +162,22 @@ public:
                                  CefRefPtr<CefDownloadItem> download_item,
                                  CefRefPtr<CefDownloadItemCallback> callback) = 0;
 
+  #pragma region GetDragHandler
+  // drag hander
+  virtual bool onDragEnter(CefRefPtr<CefBrowser> browser,
+                           CefRefPtr<CefDragData> dragData,
+                           CefDragHandler::DragOperationsMask mask)
+  {
+    //return true;
+    return false;
+  }
+
+  virtual void draggableRegionChanged(CefRefPtr<CefBrowser>& browser,
+                                      const std::vector<CefDraggableRegion>& regions) = 0;
+#pragma endregion
+
   // Off screen rendering
+#pragma region RenderHandler
   virtual bool getRootScreenRect(CefRefPtr<CefBrowser> browser, CefRect& rect) { return false; }
   virtual void getViewRect(CefRefPtr<CefBrowser> browser, CefRect& rect) {}
   virtual bool getScreenPoint(CefRefPtr<CefBrowser> browser, int viewX, int viewY, int& screenX, int& screenY)
@@ -206,6 +218,7 @@ public:
                                       const CefRange& selected_range)
   {}
   virtual void onVirtualKeyboardRequested(CefRefPtr<CefBrowser> browser, CefRenderHandler::TextInputMode input_mode) {}
+#pragma endregion
 };
 
 #endif

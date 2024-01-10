@@ -206,6 +206,7 @@ protected:
                               const CefCursorInfo& custom_cursor_info) override;
 
   // CefDragHandler methods
+#pragma region CefDragHandler   
   virtual CefRefPtr<CefDragHandler> GetDragHandler() override;
   virtual bool OnDragEnter(CefRefPtr<CefBrowser> browser,
                            CefRefPtr<CefDragData> dragData,
@@ -214,6 +215,8 @@ protected:
   virtual void OnDraggableRegionsChanged(CefRefPtr<CefBrowser> browser,
                                          CefRefPtr<CefFrame> frame,
                                          const std::vector<CefDraggableRegion>& regions) override;
+
+  #pragma endregion
 
   // CefFindHandler methods
   virtual CefRefPtr<CefFindHandler> GetFindHandler() override;
@@ -289,6 +292,7 @@ protected:
                            const CefString& failedUrl) override;
 
   // CefRenderHandler
+#pragma region CefRenderHandler
   virtual CefRefPtr<CefRenderHandler> GetRenderHandler() override;
   virtual CefRefPtr<CefAccessibilityHandler> GetAccessibilityHandler() override;
   virtual bool GetRootScreenRect(CefRefPtr<CefBrowser> browser, CefRect& rect) override;
@@ -321,6 +325,7 @@ protected:
                                       const CefString& selected_text,
                                       const CefRange& selected_range) override;
   virtual void OnVirtualKeyboardRequested(CefRefPtr<CefBrowser> browser, TextInputMode input_mode) override;
+#pragma endregion
 
   // CefRequestHandler methods
   virtual CefRefPtr<CefRequestHandler> GetRequestHandler() override;
