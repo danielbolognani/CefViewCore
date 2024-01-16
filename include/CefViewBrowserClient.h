@@ -39,6 +39,7 @@ class CefViewBrowserClient
   , public CefKeyboardHandler
   , public CefLifeSpanHandler
   , public CefLoadHandler
+  , public CefPrintHandler
   , public CefRequestHandler
   , public CefResourceRequestHandler
   , public CefRenderHandler
@@ -290,6 +291,22 @@ protected:
                            ErrorCode errorCode,
                            const CefString& errorText,
                            const CefString& failedUrl) override;
+
+  // CefPrintHandler methods
+  virtual CefRefPtr<CefPrintHandler> GetPrintHandler() override;
+  virtual void OnPrintStart(CefRefPtr<CefBrowser> browser) override;
+  virtual void OnPrintSettings(CefRefPtr<CefBrowser> browser,
+                               CefRefPtr<CefPrintSettings> settings,
+                               bool get_defaults) override;
+  virtual bool OnPrintDialog(CefRefPtr<CefBrowser> browser,
+                             bool has_selection,
+                             CefRefPtr<CefPrintDialogCallback> callback) override;
+  virtual bool OnPrintJob(CefRefPtr<CefBrowser> browser,
+                          const CefString& document_name,
+                          const CefString& pdf_file_path,
+                          CefRefPtr<CefPrintJobCallback> callback) override;
+  virtual void OnPrintReset(CefRefPtr<CefBrowser> browser) override;
+
 
   // CefRenderHandler
 #pragma region CefRenderHandler

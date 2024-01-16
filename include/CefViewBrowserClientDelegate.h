@@ -95,6 +95,20 @@ public:
                          const std::string& failedUrl,
                          bool& handled) = 0;
 
+  // print handler
+  virtual void printStart(CefRefPtr<CefBrowser> browser) = 0;
+  virtual void printSettings(CefRefPtr<CefBrowser> browser,
+                               CefRefPtr<CefPrintSettings> settings,
+                               bool get_defaults) = 0;
+  virtual bool printDialog(CefRefPtr<CefBrowser> browser,
+                             bool has_selection,
+                             CefRefPtr<CefPrintDialogCallback> callback) = 0;
+  virtual bool printJob(CefRefPtr<CefBrowser> browser,
+                          const std::string& document_name,
+                          const std::string& pdf_file_path,
+                          CefRefPtr<CefPrintJobCallback> callback) = 0;
+  virtual void printReset(CefRefPtr<CefBrowser> browser) = 0;
+
   // request handler
   virtual bool selectClientCertificate(CefRefPtr<CefBrowser> browser,
                                        bool isProxy,
