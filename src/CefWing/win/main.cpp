@@ -64,6 +64,10 @@ CefViewWingMain(HINSTANCE hInstance)
 int APIENTRY
 wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow)
 {
+#if defined(WIN32) && !defined(WIN64)
+// Apenas para win x86, aumentar o stack padrão, pois 0.5kb é muito pouco para as aplicações (gera queda em alguns pontos)
+  CefRunWinMainWithPreferredStackSize(wWinMain, hInstance, lpCmdLine, nCmdShow);
+#endif
   UNREFERENCED_PARAMETER(hPrevInstance);
   UNREFERENCED_PARAMETER(lpCmdLine);
   return CefViewWingMain(hInstance);
