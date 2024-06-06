@@ -1,23 +1,28 @@
 #
 # The link for downloading the CEF binary sdk 
 #
-set(CEF_SDK_VERSION 
-  # Old version (deprecated and incompatible)
-  # "89.0.12+g2b76680+chromium-89.0.4389.90"
-
-  # Current version
-  "111.2.7+gebf5d6a+chromium-111.0.5563.148"
-  #"109.1.18+gf1c41e4+chromium-109.0.5414.120" ## 32-bit version
-  
-  # Newer version (need to adpat)
-  # --
-)
 
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # Generally, there is NO NEED to modify the following config
 #
 # Download CEF binary package
 #
+
+if(OS_WINDOWS AND PROJECT_ARCH STREQUAL "x86")
+  set(CEF_SDK_VERSION "109.1.18+gf1c41e4+chromium-109.0.5414.120") ## 32-bit version
+else()
+  set(CEF_SDK_VERSION 
+  # Old version (deprecated and incompatible)
+  # "89.0.12+g2b76680+chromium-89.0.4389.90"
+
+  # Current version
+  "111.2.7+gebf5d6a+chromium-111.0.5563.148"
+    
+  # Newer version (need to adpat)
+  # --
+)
+endif()
+
 if(OS_WINDOWS)
   set(CEF_SDK_PLATFORM "windows")
 elseif (OS_LINUX)
